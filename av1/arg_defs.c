@@ -355,9 +355,6 @@ const av1_codec_arg_definitions_t g_av1_codec_arg_defs = {
   .enable_dual_filter = ARG_DEF(NULL, "enable-dual-filter", 1,
                                 "Enable dual filter "
                                 "(0: false, 1: true (default))"),
-  .enable_chroma_deltaq = ARG_DEF(NULL, "enable-chroma-deltaq", 1,
-                                  "Enable chroma delta quant "
-                                  "(0: false (default), 1: true)"),
   .enable_intra_edge_filter = ARG_DEF(NULL, "enable-intra-edge-filter", 1,
                                       "Enable intra edge filtering "
                                       "(0: false, 1: true (default))"),
@@ -683,5 +680,7 @@ const av1_codec_arg_definitions_t g_av1_codec_arg_defs = {
       ARG_DEF(NULL, "sb-qp-sweep", 1,
               "When set to 1, enable the superblock level qp sweep for a "
               "given lambda to minimize the rdcost."),
+   .chroma_offset =
+      ARG_DEF(NULL, "chroma-offset", 1, "Offset the qp for chroma planes"),
 #endif  // CONFIG_AV1_ENCODER
 };

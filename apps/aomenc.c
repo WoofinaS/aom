@@ -151,7 +151,6 @@ static const int av1_arg_ctrl_map[] = { AOME_SET_CPUUSED,
                                         AV1E_SET_MIN_PARTITION_SIZE,
                                         AV1E_SET_MAX_PARTITION_SIZE,
                                         AV1E_SET_ENABLE_DUAL_FILTER,
-                                        AV1E_SET_ENABLE_CHROMA_DELTAQ,
                                         AV1E_SET_ENABLE_INTRA_EDGE_FILTER,
                                         AV1E_SET_ENABLE_ORDER_HINT,
                                         AV1E_SET_ENABLE_TX64,
@@ -237,6 +236,7 @@ static const int av1_arg_ctrl_map[] = { AOME_SET_CPUUSED,
                                         AV1E_SET_ENABLE_TX_SIZE_SEARCH,
                                         AV1E_SET_LOOPFILTER_CONTROL,
                                         AV1E_SET_AUTO_INTRA_TOOLS_OFF,
+                                        AV1E_SET_CHROMA_OFFSET,
                                         0 };
 
 const arg_def_t *main_args[] = { &g_av1_codec_arg_defs.help,
@@ -355,7 +355,6 @@ const arg_def_t *av1_ctrl_args[] = {
   &g_av1_codec_arg_defs.min_partition_size,
   &g_av1_codec_arg_defs.max_partition_size,
   &g_av1_codec_arg_defs.enable_dual_filter,
-  &g_av1_codec_arg_defs.enable_chroma_deltaq,
   &g_av1_codec_arg_defs.enable_intra_edge_filter,
   &g_av1_codec_arg_defs.enable_order_hint,
   &g_av1_codec_arg_defs.enable_tx64,
@@ -441,6 +440,7 @@ const arg_def_t *av1_ctrl_args[] = {
   &g_av1_codec_arg_defs.enable_tx_size_search,
   &g_av1_codec_arg_defs.loopfilter_control,
   &g_av1_codec_arg_defs.auto_intra_tools_off,
+  &g_av1_codec_arg_defs.chroma_offset,
   NULL,
 };
 

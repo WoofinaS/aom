@@ -794,12 +794,12 @@ typedef struct {
   DELTAQ_MODE deltaq_mode;
   // Indicates the delta q mode strength.
   DELTAQ_MODE deltaq_strength;
-  // Indicates if delta quantization should be enabled in chroma planes.
-  bool enable_chroma_deltaq;
   // Indicates if delta quantization should be enabled for hdr video
   bool enable_hdr_deltaq;
   // Indicates if encoding with quantization matrices should be enabled.
   bool using_qm;
+  // Indicates the qp offset for chroma planes
+  int chroma_offset;
 } QuantizationCfg;
 
 /*!\endcond */

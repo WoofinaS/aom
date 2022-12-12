@@ -1059,9 +1059,9 @@ void av1_determine_sc_tools_with_encoding(AV1_COMP *cpi, const int q_orig) {
     set_encoding_params_for_screen_content(cpi, pass);
     av1_set_quantizer(cm, q_cfg->qm_minlevel, q_cfg->qm_maxlevel,
                       q_for_screen_content_quick_run,
-                      q_cfg->enable_chroma_deltaq, q_cfg->enable_hdr_deltaq);
+                      q_cfg->chroma_offset, q_cfg->enable_hdr_deltaq);
     av1_set_speed_features_qindex_dependent(cpi, oxcf->speed);
-    if (q_cfg->deltaq_mode != NO_DELTA_Q || q_cfg->enable_chroma_deltaq)
+    if (q_cfg->deltaq_mode != NO_DELTA_Q)
       av1_init_quantizer(&cpi->enc_quant_dequant_params, &cm->quant_params,
                          cm->seq_params->bit_depth);
 

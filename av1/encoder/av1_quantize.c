@@ -823,25 +823,17 @@ static int adjust_hdr_cr_deltaq(int base_qindex) {
 }
 
 void av1_set_quantizer(AV1_COMMON *const cm, int min_qmlevel, int max_qmlevel,
-                       int q, int enable_chroma_deltaq, int enable_hdr_deltaq) {
+                       int q, int chroma_offset, int enable_hdr_deltaq) {
   // quantizer has to be reinitialized with av1_init_quantizer() if any
   // delta_q changes.
   CommonQuantParams *quant_params = &cm->quant_params;
   quant_params->base_qindex = AOMMAX(cm->delta_q_info.delta_q_present_flag, q);
   quant_params->y_dc_delta_q = 0;
 
-  if (enable_chroma_deltaq) {
-    // TODO(aomedia:2717): need to design better delta
-    quant_params->u_dc_delta_q = 2;
-    quant_params->u_ac_delta_q = 2;
-    quant_params->v_dc_delta_q = 2;
-    quant_params->v_ac_delta_q = 2;
-  } else {
-    quant_params->u_dc_delta_q = 0;
-    quant_params->u_ac_delta_q = 0;
-    quant_params->v_dc_delta_q = 0;
-    quant_params->v_ac_delta_q = 0;
-  }
+  quant_params->u_dc_delta_q += chroma_offset;
+  quant_params->u_ac_delta_q += chroma_offset;
+  quant_params->v_dc_delta_q += chroma_offset;
+  quant_params->v_ac_delta_q += chroma_offset;
 
   // following section 8.3.2 in T-REC-H.Sup15 document
   // to apply to AV1 qindex in the range of [0, 255]

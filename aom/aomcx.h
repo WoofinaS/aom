@@ -956,7 +956,7 @@ enum aome_enc_control_id {
    * - 0 = disable (default)
    * - 1 = enable
    */
-  AV1E_SET_ENABLE_CHROMA_DELTAQ = 87,
+  // AV1E_SET_ENABLE_CHROMA_DELTAQ = 87,
 
   /*!\brief Codec control function to turn on / off masked compound usage
    * (wedge and diff-wtd compound modes) for a sequence, int parameter
@@ -1478,6 +1478,11 @@ enum aome_enc_control_id {
    */
   AV1E_ENABLE_SB_QP_SWEEP = 158,
 
+  /*!\brief Codec control function to adjust qp offsets for the u/v channels.
+   * This value can be between +62 and -62.
+   */
+  AV1E_SET_CHROMA_OFFSET = 228,
+
   // Any new encoder control IDs should be added above.
   // Maximum allowed encoder control ID is 229.
   // No encoder control ID should be added below.
@@ -1875,9 +1880,6 @@ AOM_CTRL_USE_TYPE(AV1E_SET_ALLOW_REF_FRAME_MVS, int)
 AOM_CTRL_USE_TYPE(AV1E_SET_ENABLE_DUAL_FILTER, int)
 #define AOM_CTRL_AV1E_SET_ENABLE_DUAL_FILTER
 
-AOM_CTRL_USE_TYPE(AV1E_SET_ENABLE_CHROMA_DELTAQ, int)
-#define AOM_CTRL_AV1E_SET_ENABLE_CHROMA_DELTAQ
-
 AOM_CTRL_USE_TYPE(AV1E_SET_ENABLE_MASKED_COMP, int)
 #define AOM_CTRL_AV1E_SET_ENABLE_MASKED_COMP
 
@@ -2099,6 +2101,9 @@ AOM_CTRL_USE_TYPE(AV1E_SET_SKIP_POSTPROC_FILTERING, unsigned int)
 
 AOM_CTRL_USE_TYPE(AV1E_ENABLE_SB_QP_SWEEP, unsigned int)
 #define AOM_CTRL_AV1E_ENABLE_SB_QP_SWEEP
+
+AOM_CTRL_USE_TYPE(AV1E_SET_CHROMA_OFFSET, int)
+#define AOM_CTRL_AV1E_SET_CHROMA_OFFSET
 
 /*!\endcond */
 /*! @} - end defgroup aom_encoder */

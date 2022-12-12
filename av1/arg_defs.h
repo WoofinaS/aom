@@ -137,7 +137,6 @@ typedef struct av1_codec_arg_definitions {
   arg_def_t min_partition_size;
   arg_def_t max_partition_size;
   arg_def_t enable_dual_filter;
-  arg_def_t enable_chroma_deltaq;
   arg_def_t enable_intra_edge_filter;
   arg_def_t enable_order_hint;
   arg_def_t enable_tx64;
@@ -233,6 +232,7 @@ typedef struct av1_codec_arg_definitions {
   arg_def_t strict_level_conformance;
   arg_def_t kf_max_pyr_height;
   arg_def_t sb_qp_sweep;
+  arg_def_t chroma_offset;
 #endif  // CONFIG_AV1_ENCODER
 } av1_codec_arg_definitions_t;
 
