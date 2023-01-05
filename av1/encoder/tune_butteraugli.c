@@ -350,11 +350,11 @@ void av1_setup_butteraugli_rdmult_and_restore_source(AV1_COMP *cpi, double K) {
       cm->features.byte_alignment, 0);
 
   if (cm->seq_params->use_highbitdepth) {
-    copy_img_highbd(&cpi->common.cur_frame->buf, &resized_recon, width,
-            height);
+    copy_img_highbd(&cpi->common.cur_frame->buf, &resized_recon, width /
+        resize_factor, height / resize_factor);
   } else {
-    copy_img_lowbd(&cpi->common.cur_frame->buf, &resized_recon, width,
-            height);
+    copy_img_lowbd(&cpi->common.cur_frame->buf, &resized_recon, width /
+        resize_factor, height / resize_factor);
   }
 
   set_mb_butteraugli_rdmult_scaling(cpi, &cpi->butteraugli_info.resized_source,
